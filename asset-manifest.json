@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/Paycheck-calculator/static/css/main.4367e615.css",
-    "main.js": "/Paycheck-calculator/static/js/main.061f2e82.js",
-    "static/js/787.30b61a85.chunk.js": "/Paycheck-calculator/static/js/787.30b61a85.chunk.js",
+    "main.css": "/Paycheck-calculator/static/css/main.54d19306.css",
+    "main.js": "/Paycheck-calculator/static/js/main.a6bd3abf.js",
+    "static/js/787.877a792b.chunk.js": "/Paycheck-calculator/static/js/787.877a792b.chunk.js",
     "static/media/pic.webp": "/Paycheck-calculator/static/media/pic.b5ad900021bd8b37558a.webp",
     "index.html": "/Paycheck-calculator/index.html",
-    "main.4367e615.css.map": "/Paycheck-calculator/static/css/main.4367e615.css.map",
-    "main.061f2e82.js.map": "/Paycheck-calculator/static/js/main.061f2e82.js.map",
-    "787.30b61a85.chunk.js.map": "/Paycheck-calculator/static/js/787.30b61a85.chunk.js.map"
+    "main.54d19306.css.map": "/Paycheck-calculator/static/css/main.54d19306.css.map",
+    "main.a6bd3abf.js.map": "/Paycheck-calculator/static/js/main.a6bd3abf.js.map",
+    "787.877a792b.chunk.js.map": "/Paycheck-calculator/static/js/787.877a792b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4367e615.css",
-    "static/js/main.061f2e82.js"
+    "static/css/main.54d19306.css",
+    "static/js/main.a6bd3abf.js"
   ]
 }
