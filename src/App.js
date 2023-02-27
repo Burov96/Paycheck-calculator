@@ -13,6 +13,7 @@ function App() {
   const arr=[];
   const payrate=useRef();
   var totalMin=0;
+  const pay = useRef(0);
   const [hours,setHours]=useState(0);
   const [nok,setNok]=useState(0);
   const[payrateVisibility,setPRV]=useState(true);
@@ -22,27 +23,25 @@ function App() {
   const ready= () =>{setTick('✅');}
   const removeElement = () => {
     setVisible((prev) => !prev);}
-  function totalCalc(e){
-    // setRezultat(aup);
-  }
   function handler(e){
     const cin=checkin.current.value;
     const cout=checkout.current.value;
-    arr.push(cin,cout); 
+    arr.push(pay.current,cin,cout); 
     const p=arr.shift();
     arr.push(p);
     let aup=HoursSumm(arr);
     aup=aup.map((a)=>{return Number(a)})
-    setHours(hours+aup[1]);
-    setNok(nok+aup[2]);
+    setHours(Number(hours)+aup[1]);
+    setNok(Number(nok)+aup[2]);
     removeElement();
     ready();
 
   }
   function isPayrateVisible(e){
     setPRV((isVisible) => !isVisible);
-    const pay=payrate.current.value;
-    arr.push(pay); 
+    debugger
+    pay.current=Number(payrate.current.value);
+    // arr.push(pay); 
     setAll(true);
   }
   function add(e){
@@ -68,7 +67,7 @@ function App() {
     placeholder="Check-in"
     maxLength="5"
     style={{marginRight:"30px",height:'30px',width:"97px",borderRadius:'9px',padding:"3px",justifyContent:"center",textAlign:"left",fontSize:"16pt"}}/>
-    <input ref={checkout} className="checkout"
+    <input ref={checkout} className="Check-out"
     type="text" 
     placeholder="Check-out"
     maxLength="5"
