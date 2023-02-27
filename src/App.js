@@ -41,7 +41,7 @@ function App() {
     setPRV((isVisible) => !isVisible);
     debugger
     pay.current=Number(payrate.current.value);
-    // arr.push(pay); 
+    // arr.push(pay); UPDATED
     setAll(true);
   }
   function add(e){
