@@ -31,7 +31,10 @@ function App() {
   const [payrateVisibility, setPRV] = useState(true);
   const [everything, setAll] = useState(false);
   const [anotherOne, setAnotherOne] = useState(null);
-  const [history, setHistory] = useState([]);
+
+  const list = localStorage.getItem("history");
+  const parsedList = JSON.parse(list) || [];
+  const [history, setHistory] = useState(parsedList);
 
   const ready = () => {
     setTick("✅");
@@ -50,14 +53,11 @@ function App() {
       );
     }
   }, [tick]);
+    
+  useEffect(() => {
+    savePoletaToLocalStorage(history);
+  }, [history]);
   
-  savePoletaToLocalStorage(history);
-
-
-  // useEffect(() => {
-  //   loadPoletaFromLocalStorage();
-  // }, []);
-
   useEffect(() => {
     if (selectedDate) {
       const selectedDateString = selectedDate.toLocaleDateString();
@@ -65,7 +65,7 @@ function App() {
       setDayBeing(dayBeing);
     }
   }, [selectedDate]);
-
+  
   function add(e) {
     const cin = checkin.current.value;
     const cout = checkout.current.value;
@@ -79,11 +79,8 @@ function App() {
     setHours(Number(hours) + aup[1]);
     setNok(Number(nok) + aup[2]);
     ready();
-    // debugger;
-    // localStorage.clear();
-    // const obj={date:selectedDate,chin:cin,chout:cout}
+
     setHistory([...history,{ date: selectedDate.toLocaleDateString(), chin: cin, chout: cout }]);
-    // history.push(obj);
     savePoletaToLocalStorage(history);
   }
 
@@ -139,9 +136,8 @@ function App() {
   }
 
   return (
-    // console.log(
-    //   "Please use 24h format. The software rounds hours, but calculates the payment exact to the last minute."
-    // ),
+    console.log(
+      "Please use 24h format. The software rounds hours, but calculates the payment exact to the last minute."),
     <div className="boddy">
       {payrateVisibility && (
         <>

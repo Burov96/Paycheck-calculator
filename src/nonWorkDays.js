@@ -629,7 +629,6 @@ export function vacay(date){
     const date2=`${m}/${d}/${g}`
     // Purpose of the function : 01/07/2023' => '1/7/2023', so it can find the date in the proper format. And no, this shit is not AI generated.
     const soIts=dateChecker(date2)
-    console.log(soIts);
     return soIts;
 }
 function dateChecker(date){

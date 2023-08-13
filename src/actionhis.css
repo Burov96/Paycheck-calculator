@@ -91,3 +91,7 @@
     opacity: .8;
     transform: scale(1.0);
   }
+  .scrollable {
+    max-height: 200px; /* Set the maximum height you desire */
+    overflow-y: auto;
+  }

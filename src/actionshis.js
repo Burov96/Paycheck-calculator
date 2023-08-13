@@ -27,29 +27,27 @@ export function Actionhis() {
     }
   }
 
+  const scrollableClass = listed.length > 3 ? "scrollable" : "";
+
   return (
-    <div
-        className={`actionhis ${isActive ? "active" : ""}`}
-        onClick={actionToggle}
-    >
-        <span>📜</span>
-        {isActive && (
-            <ul>
-                {listed.length > 0 && (
-                    <li>
-                        <button className="delete-button" onClick={handleDeleteClick}>
-                        </button>
-                    </li>
-                )}
-                {listed.map((item, index) => (
-                    <li key={index}>
-                        Date: {item.date} <br />
-                        Check-in: {item.chin} <br />
-                        Check-out: {item.chout}
-                    </li>
-                ))}
-            </ul>
-        )}
+    <div className={`actionhis ${isActive ? "active" : ""}`} onClick={actionToggle}>
+      <span>📜</span>
+      {isActive && (
+        <ul className={scrollableClass}>
+          {listed.length > 0 && (
+            <li>
+              <button className="delete-button" onClick={handleDeleteClick}></button>
+            </li>
+          )}
+          {listed.map((item, index) => (
+            <li key={index}>
+              Date: {item.date} <br />
+              Check-in: {item.chin} <br />
+              Check-out: {item.chout}
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
-);
+  );
 }
