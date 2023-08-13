@@ -116,3 +116,42 @@ border-radius: 10px;
 .day{
   position:relative;
 }
+.smooth-transition {
+  .shrink-animation {
+    animation: shrink 0.7s ease;
+  }
+  
+  @keyframes shrink {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.2);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }}
+  .container {
+    position: relative; /* Ensure it doesn't interfere with the background */
+  }
+  
+  .fade {
+    animation: fadeEffect 2s;
+  }
+  
+  @keyframes fadeEffect {
+    0% {
+      opacity: 1;
+      color: initial; /* Initial color */
+    }
+    90% {
+      opacity: 1;
+      color: #f00; /* Color after 2 seconds (adjust as needed) */
+    }
+    100% {
+      opacity: 0;
+      color: #f00; /* Same color as at 90% */
+    }
+  }
+

@@ -7,9 +7,8 @@ import { vacay } from "./nonWorkDays.js";
 import { isVisible } from "@testing-library/user-event/dist/utils/index.js";
 
 function App() {
-  const [poleta, setPoleta] = useState([
-    { service: "", date: new Date(), dayBeingIs: null },
-  ]);
+  const [poleta, setPoleta] = useState([{ service: "", date: new Date(), dayBeingIs: null }]);
+
   const [dayBeingIs, setDayBeing] = useState(null);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [tick, setTick] = useState(
@@ -21,6 +20,9 @@ function App() {
       Add
     </button>
   );
+
+  
+
   const checkin = useRef();
   const checkout = useRef();
   const arr = [];
@@ -30,8 +32,7 @@ function App() {
   const [nok, setNok] = useState(0);
   const [payrateVisibility, setPRV] = useState(true);
   const [everything, setAll] = useState(false);
-  const [anotherOne, setAnotherOne] = useState(null);
-  const [history, setHistory] = useState([]);
+  const[anotherOne,setAnotherOne] = useState(null);
 
   const ready = () => {
     setTick("✅");
@@ -40,23 +41,12 @@ function App() {
   useEffect(() => {
     if (tick === "✅") {
       setAnotherOne(
-        <button
-          className="btn"
-          onClick={anotherDay}
-          style={{ scale: "0.8", justifyContent: "center" }}
-        >
+        <button className="btn" onClick={anotherDay} style={{ scale: "0.8", justifyContent: "center" }}>
           Another day
         </button>
       );
     }
   }, [tick]);
-  
-  savePoletaToLocalStorage(history);
-
-
-  // useEffect(() => {
-  //   loadPoletaFromLocalStorage();
-  // }, []);
 
   useEffect(() => {
     if (selectedDate) {
@@ -67,6 +57,11 @@ function App() {
   }, [selectedDate]);
 
   function add(e) {
+    if(isNaN!==true){
+    setPoleta([
+      ...poleta,
+      { service: "", date: new Date()}
+    ]);
     const cin = checkin.current.value;
     const cout = checkout.current.value;
     arr.push(pay.current, cin, cout);
@@ -80,12 +75,9 @@ function App() {
     setNok(Number(nok) + aup[2]);
     ready();
     // debugger;
-    // localStorage.clear();
-    // const obj={date:selectedDate,chin:cin,chout:cout}
-    setHistory([...history,{ date: selectedDate.toLocaleDateString(), chin: cin, chout: cout }]);
-    // history.push(obj);
-    savePoletaToLocalStorage(history);
-  }
+    console.log("selectedDate is " + selectedDate);
+    // console.log(poleta);
+  }}
 
   function isPayrateVisible(e) {
     e.preventDefault();
@@ -106,37 +98,21 @@ function App() {
   }
 
   function anotherDay(e) {
-    if (tick !== "✅") {
-      alert("⚠️Please add some data before that!");
-    } else {
-      setTick(
-        <button
-          className="btn"
-          onClick={() => {
-            add();
-          }}
-        >
-          Add
-        </button>
-      );
-      setPoleta([...poleta, { service: "", date: new Date() }]);
-      setAnotherOne(null)
-    }
+    tick !== "✅"
+      ? alert("⚠️Please add some data before that!")
+      : setTick(
+          <button className="btn" onClick={add}>
+            Add
+          </button>
+        );
   }
+
   function handleDateChange(date, index) {
     const updatedPoleta = [...poleta];
     updatedPoleta[index].date = date;
-
-    const selectedDateString = date.toLocaleDateString();
-    updatedPoleta[index].dayBeingIs = vacay(selectedDateString);
-
     setPoleta(updatedPoleta);
-    setSelectedDate(date);
   }
-
-  function savePoletaToLocalStorage(historyObject) {
-    localStorage.setItem("history", JSON.stringify(historyObject));
-  }
+  
 
   return (
     // console.log(
@@ -173,7 +149,7 @@ function App() {
               <div className="day">
                 <h1>{pole.service}</h1>
                 <label htmlFor="service" className={`dayBeing`}>
-                  {pole.dayBeingIs ? `${pole.dayBeingIs}` : `Day ${index + 1}`}
+                  {dayBeingIs ? `${dayBeingIs}` : `Day ${index + 1}`}
                 </label>
                 <DatePicker
                   selected={pole.date}
@@ -184,8 +160,8 @@ function App() {
                     setSelectedDate(pole.date);
                     const selectedDateString =
                       selectedDate.toLocaleDateString();
-                    // console.log("selectedDate is " + selectedDate);
                     setDayBeing(vacay(selectedDateString));
+                    console.log("Reached change date  " + date);
                   }}
                 />
                 <br /> <br />
