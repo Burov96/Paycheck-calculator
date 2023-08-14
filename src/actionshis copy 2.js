@@ -43,20 +43,16 @@ export function Actionhis() {
       <span>📜</span>
       {isActive && (
         <ul ref={scrollableRef} className={scrollableClass}>
-          {listed.length > 0 ? (
-            <>
-              <li>
-                <button className="delete-button" onClick={handleDeleteClick}></button>
-              </li>
-              {listed.map((item, index, zaplata) => (
-                <li key={index}>
-                  {item.date.substring(0, 4)}, {item.chin} ➠ {item.chout}, {(HoursSumm([item.chin,item.chout, zaplatata]))[2]} NOK
-                </li>
-              ))}
-            </>
-          ) : (
-            <li>There is nothing in your history. (Local storage is empty)</li>
+          {listed.length > 0 && (
+            <li>
+              <button className="delete-button" onClick={handleDeleteClick}></button>
+            </li>
           )}
+          {listed.map((item, index, zaplata) => (
+            <li key={index}>
+              {item.date.substring(0, 4)}, {item.chin} ➠ {item.chout}, {(HoursSumm([item.chin,item.chout, zaplatata]))[2]} NOK
+            </li>
+          ))}
         </ul>
       )}
     </div>

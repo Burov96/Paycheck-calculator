@@ -36,6 +36,8 @@ export default function HoursSumm(array) {
 
     site.push(totalMin,hours,nok)
     return site;
+    //vrushta array ['obshta rabota v minute', 'obshta rabota v chasove', 'zaplashtane']
+    // console.log(HoursSumm(["1:00","3:00",200])) => [120, '2', '400.00']
     // (`You've been working ${totalMin} minutes, that's ${(totalMin / 60).toFixed(0)} hours! You've made ${total.toFixed(2)}NOK.`)
   }}
 // HoursSumm(["17:30","2:30","17:30","3:30","18:20","2:45","20:00","3:15","20:15","00:30","20:00","00:30","20:00","2:30","20:00","3:0","20:05","1:15"])

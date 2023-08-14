@@ -1,97 +1,104 @@
 .actionhis {
-    position: fixed;
-    bottom: 50px;
-    left: 50px;
-    width: 50px;
-    height: 50px;
-    background: transparent;
-    border-radius: 50%;
-    cursor: pointer;
-    box-shadow: 0 5px 5px rgba(0,0,0,0.1);
-    scale: 2;
-  }
-  .actionhis span {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #a13dea;
-    font-size: 2em;
-    transition: .3s ease-in-out;
-  }
-  .actionhis.active span  {
-    transform: rotate(135deg);
-  }
-  
-  .actionhis ul {
-    position: absolute;
-    bottom: 55px;
-    background-color: rgba(80, 51, 30, 0.66);
-    min-width: 250px;
-    padding: 20px;
-    border-radius: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .3s;
-  }
-  .delete-button{
-    background: url("./trash-full.svg") no-repeat center;
-    background-size: contain; /* or cover, depending on your preference */
-    border: none;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; 
-    position:relative;
-    margin-left: 86%;
-    right: 100;
-    transition: background 0.3s ease, transform 0.3s ease; /* Adding transitions */
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 5px 5px rgba(0,0,0,0.1);
+  scale: 2;
+}
+.actionhis span {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #a13dea;
+  font-size: 2em;
+  transition: .3s ease-in-out;
+}
+.actionhis.active span  {
+  transform: rotate(135deg);
+  opacity: 1;
+}
 
-  }
+.actionhis ul {
+  position: absolute;
+  bottom: 55px;
+  background-color: rgba(80, 51, 30, 0.66);
+  min-width: 250px;
+  padding: 20px;
+  border-radius: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+}
+.delete-button{
+  background: url("./trash-full.svg") no-repeat center;
+  background-size: contain; /* or cover, depending on your preference */
+  border: none;
+  width: 30px; /* Adjust the size as needed */
+  height: 30px; 
+  position:relative;
+  margin-left: 86%;
+  right: 100;
+  transition: background 0.3s ease, transform 0.3s ease; /* Adding transitions */
 
-  .delete-button:hover {
-    background: url("./trash-empty.svg") no-repeat center;
-    background-size: contain; /* or cover, depending on your preference */
-    border: none;
-    width: 30px; /* Adjust the size as needed */
-    height: 30px; 
-    cursor:grab; /* Change cursor style on hover */
-    transform: rotate(360deg); /* Rotate the button on hover */
+}
+
+.delete-button:hover {
+  background: url("./trash-empty.svg") no-repeat center;
+  background-size: contain;
+  border: none;
+  width: 30px; 
+  height: 30px; 
+  cursor:pointer;
+  transform: scale(1.2); 
 
 
-  }
+}
 
-  .actionhis.active ul {
-    bottom: 65px;
-    opacity: 1;
-    visibility: visible;
-    transition: .3s;
-  }
-  .actionhis ul li {
-    list-style:none;
-     text-decoration: none;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 7px 0;
-  }
-  
-  .actionhis ul li:hover {
-    font-weight: 600;
-  }
-  .actionhis ul li:not(:last-child) {
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-  }
-  .actionhis ul li img {
-    margin-right: 15px;
-    opacity: .2;
-    transform: scale(.7);
-  }
-  .actionhis ul li:hover img {  
-    opacity: .8;
-    transform: scale(1.0);
-  }
-  .scrollable {
-    max-height: 200px; /* Set the maximum height you desire */
-    overflow-y: auto;
-  }
+.actionhis.active ul {
+  bottom: 65px;
+  opacity: 1;
+  visibility: visible;
+  transition: .3s;
+}
+.actionhis ul li {
+  list-style:none;
+   text-decoration: none;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 7px 0;
+}
+
+.actionhis ul li:hover {
+  font-weight: 600;
+}
+.actionhis ul li:not(:last-child) {
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.actionhis ul li img {
+  margin-right: 15px;
+  opacity: .2;
+  transform: scale(.7);
+}
+.actionhis ul li:hover img {  
+  opacity: .8;
+  transform: scale(1.0);
+}
+
+
+
+.actionhis span{
+  opacity: 0.7;
+  transition: rotate opacity 0.3s ease-in-out;
+
+}.actionhis span:hover{
+  opacity: 1;
+}

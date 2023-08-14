@@ -56,7 +56,7 @@ function App() {
     
   useEffect(() => {
     savePoletaToLocalStorage(history);
-  }, [history]);
+  }, [history, pay.current]);
   
   useEffect(() => {
     if (selectedDate) {
@@ -132,6 +132,7 @@ function App() {
   }
 
   function savePoletaToLocalStorage(historyObject) {
+    localStorage.setItem("zaplata", JSON.stringify(pay.current)) 
     localStorage.setItem("history", JSON.stringify(historyObject));
   }
 
@@ -227,7 +228,7 @@ function App() {
           <div className="smqtalo" style={{ margin: "5px" }}>
             Total hours : {isNaN(hours) ? "❌Enter proper values" : hours}{" "}
             <br />
-            Total NOK : {isNaN(nok) ? "❌Enter proper values" : nok} <br />
+            Total NOK : {isNaN(nok) ? "❌Enter proper values" : nok.toFixed(2)} <br />
             Total BGN :{" "}
             {isNaN(nok) ? "❌Enter proper values" : (nok * 0.181221).toFixed(2)}
           </div>
